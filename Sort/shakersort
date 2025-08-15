@@ -1,0 +1,21 @@
+def shaker_sort(lst):
+    n = len(lst)
+    left = 0
+    right = n - 1
+    swap = True
+    while left < right and swap:
+        swap = False
+        for i in range(left, right):
+            if lst[i] > lst[i + 1]:
+                lst[i], lst[i + 1] = lst[i + 1], lst[i]
+                swap = True
+        right -= 1
+        for i in range(right, left, -1):
+            if lst[i] < lst[i - 1]:
+                lst[i], lst[i - 1] = lst[i - 1], lst[i]
+                swap = True
+        left += 1
+
+lst = [5,4,3,2,1]
+shaker_sort(lst)
+print(lst)
